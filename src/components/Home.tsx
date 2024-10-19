@@ -63,7 +63,7 @@ export default function Home() {
                 stiffness: 120,
               }}
             >
-              Passionated in creation.
+              Passionate in creation.
             </motion.p>
           </div>
         </motion.div>
