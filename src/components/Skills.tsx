@@ -1,30 +1,67 @@
 import { motion } from "framer-motion";
 import {
   FaReact,
-  FaNodeJs,
-  FaPython,
-  FaDatabase,
+  FaSpider,
   FaDocker,
-  FaAws,
+  FaLeaf,
+  FaGitAlt,
+  FaDatabase,
+  FaCode,
+  FaPaintBrush,
+  FaCloud,
+  FaUserFriends,
 } from "react-icons/fa";
 import {
-  SiTypescript,
-  SiGraphql,
+  SiSvelte,
   SiTailwindcss,
-  SiMongodb,
+  SiPostgresql,
+  SiFigma,
+  SiAdobephotoshop,
+  SiSolid,
 } from "react-icons/si";
 
-const skills = [
-  { name: "React", icon: FaReact, color: "text-blue-500" },
-  { name: "Node.js", icon: FaNodeJs, color: "text-green-500" },
-  { name: "TypeScript", icon: SiTypescript, color: "text-blue-600" },
-  { name: "Python", icon: FaPython, color: "text-yellow-500" },
-  { name: "GraphQL", icon: SiGraphql, color: "text-pink-600" },
-  { name: "MongoDB", icon: SiMongodb, color: "text-green-600" },
-  { name: "SQL", icon: FaDatabase, color: "text-indigo-500" },
-  { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-500" },
-  { name: "Docker", icon: FaDocker, color: "text-blue-700" },
-  { name: "AWS", icon: FaAws, color: "text-orange-500" },
+const skillCategories = [
+  {
+    name: "Backend",
+    icon: FaCode,
+    color: "text-green-600",
+    skills: [
+      { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-400" },
+      { name: "Spring Boot", icon: FaLeaf, color: "text-green-500" },
+      { name: "Drizzle", icon: FaDatabase, color: "text-orange-500" },
+      { name: "Web Scraping", icon: FaSpider, color: "text-gray-700" },
+    ],
+  },
+  {
+    name: "Frontend",
+    icon: FaPaintBrush,
+    color: "text-pink-500",
+    skills: [
+      { name: "React", icon: FaReact, color: "text-blue-500" },
+      { name: "Svelte", icon: SiSvelte, color: "text-orange-600" },
+      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-teal-500" },
+      { name: "SolidJS", icon: SiSolid, color: "text-blue-600" },
+    ],
+  },
+  {
+    name: "Deployment",
+    icon: FaCloud,
+    color: "text-purple-500",
+    skills: [
+      { name: "Docker", icon: FaDocker, color: "text-blue-700" },
+      { name: "Git", icon: FaGitAlt, color: "text-orange-600" },
+      // Add more deployment skills here
+    ],
+  },
+  {
+    name: "User Experience",
+    icon: FaUserFriends,
+    color: "text-green-500",
+    skills: [
+      { name: "Figma", icon: SiFigma, color: "text-purple-600" },
+      { name: "Photoshop", icon: SiAdobephotoshop, color: "text-blue-800" },
+    ],
+  },
 ];
 
 const Skills = () => {
@@ -36,25 +73,39 @@ const Skills = () => {
       transition={{ duration: 0.8 }}
       className="my-16 px-4"
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-left">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">
-            My Skills
-          </span>
+          <span className="text-green-700">My Skills</span>
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {skills.map((skill, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
             <motion.div
-              key={skill.name}
+              key={category.name}
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+              transition={{ delay: categoryIndex * 0.2, duration: 0.5 }}
+              className="bg-white rounded-lg shadow-md p-6"
             >
-              <skill.icon className={`text-4xl ${skill.color} mb-2`} />
-              <span className="text-sm font-medium text-gray-700">
-                {skill.name}
-              </span>
+              <div className="flex items-center mb-4">
+                <category.icon className={`text-3xl ${category.color} mr-2`} />
+                <h3 className="text-2xl font-semibold">{category.name}</h3>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                {category.skills.map((skill, skillIndex) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ delay: skillIndex * 0.1, duration: 0.5 }}
+                    className="flex flex-col items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300"
+                  >
+                    <skill.icon className={`text-4xl ${skill.color} mb-2`} />
+                    <span className="text-sm font-medium text-gray-700">
+                      {skill.name}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           ))}
         </div>

@@ -1,19 +1,31 @@
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaFacebookF } from "react-icons/fa";
+import { ReactTyped } from "react-typed";
 
-const Home = () => {
+interface SocialLinkProps {
+  href: string;
+  icon: React.ReactNode;
+}
+
+const SocialLink = ({ href, icon }: SocialLinkProps) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-10 h-10 flex items-center justify-center text-green-700 border border-green-700 rounded-md hover:bg-green-700 hover:text-white transition-colors duration-300"
+  >
+    {icon}
+  </a>
+);
+
+export default function Home() {
   return (
     <motion.section
-      id="about"
+      id="home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="my-12 px-4 text-center"
+      className="flex items-center justify-center min-h-[calc(100vh-10rem)] px-4 text-center"
     >
       <div className="max-w-4xl mx-auto">
         <motion.div
@@ -22,97 +34,60 @@ const Home = () => {
           transition={{ duration: 0.8 }}
           className="mb-12"
         >
-          <h1 className="text-7xl font-bold mb-4">
-            <span className="text-6xl font-bold mb-4">
-              Nice to meet you! <br />
-            </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-500 tracking-tight">
-              I&apos;m Ernest
-            </span>
-          </h1>
-          <h2 className="text-3xl font-bold text-gray-700">
-            Crafting digital experiences with code
-          </h2>
+          <div className="space-y-4">
+            <p className="text-2xl text-gray-600 flex items-center justify-center gap-4">
+              <span>Hello there,</span>
+              <h1 className="text-4xl font-bold">I'm Ernest</h1>
+            </p>
+
+            <h2 className="text-6xl font-bold text-green-700">
+              <ReactTyped
+                strings={[
+                  "Full-Stack Developer",
+                  "Web Developer",
+                  "Software Engineer",
+                ]}
+                typeSpeed={50}
+                backSpeed={50}
+                loop
+              />
+            </h2>
+            <motion.p
+              className="text-2xl text-gray-600"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.7,
+                type: "spring",
+                stiffness: 120,
+              }}
+            >
+              Passionated in creation.
+            </motion.p>
+          </div>
         </motion.div>
 
-        <motion.p
-          className="text-xl text-gray-700 mb-8"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-        >
-          I'm a passionate{" "}
-          <span className="font-semibold text-blue-600">
-            fullstack developer
-          </span>{" "}
-          with a knack for{" "}
-          <span className="font-semibold text-teal-500">backend solutions</span>
-          . My mission is to build robust, scalable applications that make a
-          difference.
-        </motion.p>
-
         <motion.div
-          className="flex justify-center space-x-6 mb-8"
+          className="flex justify-center space-x-4 mt-8"
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
-          <a
-            href="https://github.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-blue-600 transition-colors duration-300"
-          >
-            <FaGithub size={30} />
-          </a>
-          <a
-            href="https://facebook.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-blue-700 transition-colors duration-300"
-          >
-            <FaFacebookF size={30} />
-          </a>
-          <a
-            href="https://instagram.com/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-teal-600 transition-colors duration-300"
-          >
-            <FaInstagram size={30} />
-          </a>
-          <a
-            href="https://linkedin.com/in/yourusername"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-blue-800 transition-colors duration-300"
-          >
-            <FaLinkedinIn size={30} />
-          </a>
-        </motion.div>
-
-        <motion.div
-          className="flex flex-wrap justify-center gap-4"
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <a
-            href="#projects"
-            className="bg-gradient-to-r from-blue-600 to-teal-400 text-white px-8 py-3 rounded-full font-bold hover:from-blue-700 hover:to-teal-500 transition duration-300"
-          >
-            View My Work
-          </a>
-          <a
-            href="#contact"
-            className="bg-gray-200 text-gray-800 px-8 py-3 rounded-full font-bold hover:bg-gray-300 transition duration-300"
-          >
-            Get in Touch
-          </a>
+          <SocialLink
+            href="https://github.com/ernestdodz"
+            icon={<FaGithub size={20} />}
+          />
+          <SocialLink
+            href="https://www.facebook.com/ernestdodz"
+            icon={<FaFacebookF size={20} />}
+          />
+          <SocialLink
+            href="https://www.linkedin.com/in/ernestdodz/"
+            icon={<FaLinkedinIn size={20} />}
+          />
         </motion.div>
       </div>
     </motion.section>
   );
-};
-
-export default Home;
+}

@@ -25,11 +25,6 @@ const Header = () => {
               Projects
             </a>
           </li>
-          <li>
-            <a href="#contact" className="text-gray-600 hover:text-gray-800">
-              Contact
-            </a>
-          </li>
         </ul>
       </nav>
     </motion.header>
