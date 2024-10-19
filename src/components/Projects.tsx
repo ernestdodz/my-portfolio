@@ -2,6 +2,15 @@ import { motion } from "framer-motion";
 
 const projects = [
   {
+    id: 0,
+    title: "Inventory Management System",
+    description:
+      "An inventory management system in which the user can handle create category, suppliers and products. The project is built with SvelteKit, Drizzle and uses the latest Better Auth library for authentication.",
+    tags: ["In Progress", "SvelteKit", "Drizzle", "Supabase", "TailwindCSS"],
+    image: "/images/InventoryMS.png",
+    link: "/",
+  },
+  {
     id: 1,
     title: "FlickTodo",
     description:
