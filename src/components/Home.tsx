@@ -25,7 +25,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
-      className="flex items-center justify-center min-h-[calc(100vh-10rem)] px-4 text-center"
+      className="flex items-center justify-center min-h-screen px-4 text-center"
     >
       <div className="max-w-4xl mx-auto">
         <motion.div
