@@ -6,7 +6,14 @@ const projects = [
     title: "Inventory Management System",
     description:
       "An inventory management system in which the user can handle create category, suppliers and products. The project is built with SvelteKit, Drizzle and uses the latest Better Auth library for authentication.",
-    tags: ["In Progress", "SvelteKit", "Drizzle", "Supabase", "TailwindCSS"],
+    tags: [
+      "In Progress",
+      "SvelteKit",
+      "Drizzle",
+      "Supabase",
+      "TailwindCSS",
+      "ShadCN",
+    ],
     image: "/images/InventoryMS.png",
     link: "/",
   },
@@ -15,7 +22,7 @@ const projects = [
     title: "FlickTodo",
     description:
       "A full-stack web application for managing tasks. The project is built with Spring Boot and Supabase Auth and setup CI/CD with Github Actions.",
-    tags: ["Spring Boot", "Supabase", "NextJS", "JWT", "Docker"],
+    tags: ["Spring Boot", "Supabase", "NextJS", "JWT", "Docker", "ChakraUI"],
     image: "/images/FlickTodo.png",
     link: "https://flick-frontend.vercel.app/",
   },
@@ -24,7 +31,7 @@ const projects = [
     title: "Manifest Me",
     description:
       "Full-stack Social Media like in which users can create an account and manifest their goals. The project is built with latest NextJS server actions and uses Drizzle as the ORM.",
-    tags: ["NextJS", "Drizzle", "PostgreSQL", "CRUD"],
+    tags: ["NextJS", "Drizzle", "PostgreSQL", "CRUD", "TailwindCSS"],
     image: "/images/ManifestMe.png",
     link: "https://manifest-me-liart.vercel.app/",
   },
@@ -33,7 +40,7 @@ const projects = [
     title: "FlickTMDB",
     description:
       "A movie and TV shows application that allows users to search for their favorite movies and TV shows. The project is built with TMDB API and uses NextJS as the framework.",
-    tags: ["NextJS", "TMDB API", "TailwindCSS", "REST API"],
+    tags: ["SolidJS", "TMDB API", "TailwindCSS", "REST API"],
     image: "/images/FlickTMDB.png",
     link: "https://flicktmdb.vercel.app/",
   },
