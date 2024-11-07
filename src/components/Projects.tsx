@@ -8,7 +8,7 @@ const projects = [
       "An inventory management system in which the user can handle create category, suppliers and products. The project is built with SvelteKit, Drizzle and uses the latest Better Auth library for authentication.",
     tags: ["In Progress", "SvelteKit", "Drizzle", "TailwindCSS", "ShadCN"],
     image: "/images/InventoryMS.png",
-    link: "/",
+    link: "https://inventory-management-system-pied.vercel.app/",
   },
   {
     id: 1,
